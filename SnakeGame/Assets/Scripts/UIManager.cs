@@ -30,5 +30,9 @@ public class UIManager :BaseUi
         if(screen!=null)
         screen.DisableScreen();
     }
+
+    public T GetScreen<T>() where T :BaseUi{
+        return screens.Find(t=>t.GetType().Name==typeof(T).Name) as T;
+    }
    
 }

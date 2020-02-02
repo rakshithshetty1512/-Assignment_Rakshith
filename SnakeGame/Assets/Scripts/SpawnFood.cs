@@ -7,6 +7,7 @@ public class SpawnFood : MonoBehaviour
 {
     public Food foodStub;
     public float planeOffset;
+    public float foodYPosition;
     public List<FoodType> foodType;
     float randomnumber;
     //int ranadomZposition
@@ -30,16 +31,16 @@ public class SpawnFood : MonoBehaviour
         switch (diection)
         {
             case 0:
-                SpawnObject(randomnumber, 0, randomnumber);
+                SpawnObject(randomnumber, foodYPosition, randomnumber);
                 break;
             case 1:
-                SpawnObject(-randomnumber, 0, randomnumber);
+                SpawnObject(-randomnumber, foodYPosition, randomnumber);
                 break;
             case 2:
-                SpawnObject(-randomnumber, 0, -randomnumber);
+                SpawnObject(-randomnumber, foodYPosition, -randomnumber);
                 break;
             case 3:
-                SpawnObject(-randomnumber, 0, -randomnumber);
+                SpawnObject(-randomnumber, foodYPosition, -randomnumber);
                 break;
         }
     }

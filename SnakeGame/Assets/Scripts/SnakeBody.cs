@@ -11,8 +11,6 @@ public class SnakeBody : MonoBehaviour
  void OnTriggerEnter(Collider collider){
      
         if(collider.gameObject.tag.Equals("wall")||(collider.gameObject.tag.Equals("Head")&&!isHead)){
-    
-    Debug.Log(this.gameObject.name);
             UIManager.Instance.ActivateScreen<GameOverScreen>();
             EventHandler.TriggerGameOver();
         }
