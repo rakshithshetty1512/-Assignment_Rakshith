@@ -9,7 +9,6 @@ public class SpawnFood : MonoBehaviour
     public float planeOffset;
     public List<FoodType> foodType;
     float randomnumber;
-    public List<int> obj;
     //int ranadomZposition
     void Start()
     {

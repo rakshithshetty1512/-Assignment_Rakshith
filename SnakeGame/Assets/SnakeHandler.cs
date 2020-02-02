@@ -11,12 +11,13 @@ public class SnakeHandler : MonoBehaviour
     public float snakeSpeed;
     public float minDistBtwBd;
     public float rotatingSpeed;
+    public Vector3 offset = new Vector3(0, 0, 1f);
     private SnakeBody currentPart;
     private SnakeBody nextPart;
     private float distBtwAdjPart;
     void Start()
     {
-        for (int i = 0; i <= 15; i++)
+        for (int i = 0; i <= 4; i++)
         {
             SpawnNewPart();
         }
@@ -57,11 +58,10 @@ public class SnakeHandler : MonoBehaviour
             }
             nextPart.transform.position = Vector3.Slerp(nextPart.transform.position, newPOsition, temp);
             nextPart.transform.rotation = Quaternion.Slerp(nextPart.transform.rotation, currentPart.transform.rotation, temp);
-            Debug.Log(currentPart.transform.rotation + "," + nextPart.transform.rotation);
+//            Debug.Log(currentPart.transform.rotation + "," + nextPart.transform.rotation);
         }
 
     }
-    Vector3 offset = new Vector3(0, 0, 0.5f);
     void SpawnNewPart()
     {
 
@@ -71,6 +71,7 @@ public class SnakeHandler : MonoBehaviour
         obj.transform.rotation = snakeBody[snakeBody.Count - 1].transform.rotation;
         Vector3 position = obj.transform.position - offset;
         obj.transform.position = position;
+        obj.Set(false);
         snakeBody.Add(obj);
 
     }
