@@ -46,15 +46,19 @@ public class SnakeHandler : MonoBehaviour
             currentPart = snakeBody[i - 1];
             nextPart = snakeBody[i];
             distBtwAdjPart = Vector3.Distance(currentPart.transform.position, nextPart.transform.position);
-            float temp = Time.deltaTime * distBtwAdjPart / minDistBtwBd * snakeSpeed;
+            //float temp = Time.deltaTime * distBtwAdjPart / minDistBtwBd * snakeSpeed;
+            float temp =(distBtwAdjPart-minDistBtwBd)/distBtwAdjPart;// / minDistBtwBd;
             Vector3 newPOsition = currentPart.transform.position;
             newPOsition.y = snakeBody[0].transform.position.y;
-            if (temp > 0.5f)
-            {
-                temp = 0.5f;
-            }
+            // if (temp > 0.5f)
+            // {
+            //    //temp = 0.5f;
+            // }
+          
+        Debug.Log(Vector3.Slerp(nextPart.transform.position, newPOsition, temp)+","+nextPart.transform.position);
             nextPart.transform.position = Vector3.Slerp(nextPart.transform.position, newPOsition, temp);
-            nextPart.transform.rotation = Quaternion.Slerp(nextPart.transform.rotation, currentPart.transform.rotation, temp);
+            Debug.Log(nextPart.transform.position);
+            nextPart.transform.rotation = Quaternion.Slerp(nextPart.transform.rotation, currentPart.transform.rotation,temp);
         }
 
     }
